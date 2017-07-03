@@ -16,30 +16,6 @@ class ciemat_tweaks::files {
         source => 'puppet:///grid_files/updatedb.conf',
     }
 
-    file { '/etc/logrotate.d/syslog':
-        ensure => present,
-        mode => '0644',
-        owner => 'root',
-        group => 'root',
-        source => 'puppet:///grid_files/syslog_logrotate',
-    }
-
-    file { '/etc/cron.d/sysstat':
-        ensure => present,
-        mode => '0600',
-        owner => 'root',
-        group => 'root',
-        source => 'puppet:///grid_files/sysstat_cron',
-    }
-
-    file { '/etc/cron.d/start-up-cron':
-        ensure => present,
-        mode => '0600',
-        owner => 'root',
-        group => 'root',
-        source => 'puppet:///grid_files/start-up-cron',
-    }
-
     file { '/etc/profile.d/zzz_ciemat.sh':
         ensure => present,
         mode => '0644',
