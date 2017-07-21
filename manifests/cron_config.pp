@@ -1,5 +1,6 @@
 class ciemat_tweaks::cron_config {
 
+    # Generate multiple cron jobs in the same file
     cron::job::multiple { 'sysstat':
         jobs => [
           {

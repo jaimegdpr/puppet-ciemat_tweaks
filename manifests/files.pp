@@ -1,5 +1,8 @@
 class ciemat_tweaks::files {
 
+    # Folders /root/* must be created before getting files
+    require ciemat_tweaks::folders
+
     file { '/etc/sysctl.conf':
         ensure => present,
         mode => '0644',
@@ -55,4 +58,13 @@ class ciemat_tweaks::files {
         group => 'root',
         source => 'puppet:///grid_files/change_disk_params',
     }
+
+    file { '/root/scripts/install_torque_after_puppet.sh':
+            ensure => present,
+            mode => '0755',
+            owner => 'root',
+            group => 'root',
+            source => 'puppet:///grid_files/install_torque_after_puppet.sh',
+    }
+
 }
