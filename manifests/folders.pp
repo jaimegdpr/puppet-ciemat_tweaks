@@ -1,6 +1,6 @@
 class ciemat_tweaks::folders{
 
-    file { ['/root/scripts', '/root/gmetric', '/root/nsca', '/root/tgz', '/root/install' ]:
+    file { ['/root/packages', '/root/scripts', '/root/gmetric', '/root/nsca', '/root/tgz', '/root/install' ]:
         ensure => directory,
         mode => '0755',
         owner => 'root',
