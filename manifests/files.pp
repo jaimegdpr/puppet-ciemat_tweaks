@@ -8,7 +8,13 @@ class ciemat_tweaks::files {
         mode => '0644',
         owner => 'root',
         group => 'root',
-        source => 'puppet:///grid_files/sysctl.conf',
+        source => 'puppet:///grid_files/ciemat_tweaks/sysctl.conf',
+    }
+    
+    exec { 'reloading sysctl':
+        command => '/sbin/sysctl --system',
+        refreshonly => true,
+        subscribe => File['/etc/sysctl.conf'],
     }
 
     file { '/etc/updatedb.conf':
@@ -16,7 +22,7 @@ class ciemat_tweaks::files {
         mode => '0644',
         owner => 'root',
         group => 'root',
-        source => 'puppet:///grid_files/updatedb.conf',
+        source => 'puppet:///grid_files/ciemat_tweaks/updatedb.conf',
     }
 
     file { '/etc/profile.d/zzz_ciemat.sh':
@@ -24,7 +30,7 @@ class ciemat_tweaks::files {
         mode => '0644',
         owner => 'root',
         group => 'root',
-        source => 'puppet:///grid_files/zzz_ciemat.sh',
+        source => 'puppet:///grid_files/ciemat_tweaks/zzz_ciemat.sh',
     }
 
     file { '/etc/profile.d/zzz_ciemat.csh':
@@ -32,7 +38,7 @@ class ciemat_tweaks::files {
         mode => '0644',
         owner => 'root',
         group => 'root',
-        source => 'puppet:///grid_files/zzz_ciemat.csh',
+        source => 'puppet:///grid_files/ciemat_tweaks/zzz_ciemat.csh',
     }
 
     file { '/root/scripts/update_voms.sh':
@@ -40,7 +46,7 @@ class ciemat_tweaks::files {
         mode => '0700',
         owner => 'root',
         group => 'root',
-        source => 'puppet:///grid_files/update_voms.sh',
+        source => 'puppet:///grid_files/ciemat_tweaks/update_voms.sh',
     }
 
     file { '/root/scripts/reconfig_wn.sh':
@@ -48,7 +54,7 @@ class ciemat_tweaks::files {
         mode => '0700',
         owner => 'root',
         group => 'root',
-        source => 'puppet:///grid_files/reconfig_wn.sh',
+        source => 'puppet:///grid_files/ciemat_tweaks/reconfig_wn.sh',
     }
 
     file { '/root/scripts/change_disk_params':
@@ -56,7 +62,7 @@ class ciemat_tweaks::files {
         mode => '0755',
         owner => 'root',
         group => 'root',
-        source => 'puppet:///grid_files/change_disk_params',
+        source => 'puppet:///grid_files/ciemat_tweaks/change_disk_params',
     }
 
     file { '/root/scripts/install_torque_after_puppet.sh':
@@ -64,7 +70,7 @@ class ciemat_tweaks::files {
             mode => '0755',
             owner => 'root',
             group => 'root',
-            source => 'puppet:///grid_files/install_torque_after_puppet.sh',
+            source => 'puppet:///grid_files/ciemat_tweaks/install_torque_after_puppet.sh',
     }
 
 }
