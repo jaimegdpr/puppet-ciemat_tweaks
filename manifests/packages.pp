@@ -4,4 +4,7 @@ class ciemat_tweaks::packages {
         ensure => latest,
     }
 
+    package {'redhat-lsb-core':
+        ensure => present,
+    }
 }
