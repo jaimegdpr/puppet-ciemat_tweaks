@@ -7,4 +7,8 @@ class ciemat_tweaks::packages {
     package {'redhat-lsb-core':
         ensure => present,
     }
+
+    package {'python-pip':
+        ensure => present,
+    }
 }
