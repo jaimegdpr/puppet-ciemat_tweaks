@@ -11,4 +11,8 @@ class ciemat_tweaks::packages {
     package {'python-pip':
         ensure => present,
     }
+
+    package {'libX11-devel':
+        ensure => present,
+    }
 }
